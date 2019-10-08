@@ -1,22 +1,16 @@
-import React, {useReducer} from 'react';
-import './App.css';
-import Todo from "./component/Todo"
-import Form from "./component/Form"
-import {reducer,initialState} from "./reducers/reducer"
-
-
+import React, { useReducer } from "react";
+import "./App.css";
+import Todo from "./component/Todo";
+import Form from "./component/Form";
+import { reducer, initialState } from "./reducers/reducer";
 
 function App() {
-  const [state,dispatch]=useReducer(reducer,initialState);
-  console.log(state.todos)
-  
-
-
-
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <div className="App">
+      <Form dispatch={dispatch} />
+
       <header className="App-header">
-        <Form dispatch={dispatch} />
         <Todo state={state} dispatch={dispatch} />
       </header>
     </div>
