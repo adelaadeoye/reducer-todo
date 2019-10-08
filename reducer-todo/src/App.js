@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Form dispatch={dispatch} />
-        <Todo state={state}/>
+        <Todo state={state} dispatch={dispatch} />
       </header>
     </div>
   );

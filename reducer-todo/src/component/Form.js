@@ -8,6 +8,12 @@ const Form=({dispatch})=>{
         e.preventDefault();
       setNewTodo(e.target.value);
     };
+    const submitItem = e => {
+        if (newTodo !== '') {
+            dispatch({ type: 'ADD_TODO', payload: newTodo })
+            setNewTodo('')
+        }
+    };
 return ( 
 <div>
     <input
@@ -18,10 +24,15 @@ return (
       onChange={handleChanges}
     />
     <button
-      onClick={()=>
-        dispatch({type:'ADD_TODO',payload:newTodo})}
+      onClick={submitItem}
     >
       Add Todo
+    </button>
+    <button
+      onClick={()=>
+        dispatch({type:'CLEAR_COMPLETED'})}
+    >
+      Clear Completed
     </button>
 </div>
 )
